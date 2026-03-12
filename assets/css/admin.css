@@ -1,0 +1,164 @@
+/* Admin Panel Styles */
+:root {
+    --sidebar-width: 250px;
+    --top-nav-height: 60px;
+}
+
+/* Sidebar */
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -250px;
+    transition: margin 0.25s ease-out;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#sidebar-wrapper .list-group-item {
+    border: none;
+    padding: 1rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+#sidebar-wrapper .list-group-item:hover {
+    background: linear-gradient(135deg, var(--primary-color), #0056b3) !important;
+    padding-left: 2rem;
+}
+
+#sidebar-wrapper .list-group-item i {
+    width: 25px;
+    text-align: center;
+}
+
+/* Page Content */
+#page-content-wrapper {
+    min-width: 100vw;
+    background: #f8f9fa;
+}
+
+/* Toggle Button */
+#menu-toggle {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+}
+
+/* Dashboard Cards */
+.dashboard-card {
+    border: none;
+    border-radius: 10px;
+    padding: 1.5rem;
+    color: white;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+}
+
+.dashboard-card.primary {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.dashboard-card.success {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+.dashboard-card.warning {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+}
+
+.dashboard-card i {
+    font-size: 3rem;
+    opacity: 0.5;
+}
+
+.dashboard-card .card-number {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* DataTables Customization */
+.dataTables_wrapper {
+    padding: 1rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dataTables_filter input {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+.dataTables_paginate .paginate_button {
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+}
+
+.dataTables_paginate .paginate_button.current {
+    background: linear-gradient(135deg, var(--primary-color), #0056b3);
+    color: white !important;
+    border: none;
+}
+
+/* Admin Forms */
+.admin-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.admin-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+/* Email History */
+.email-history-item {
+    padding: 1rem;
+    border-left: 3px solid transparent;
+    transition: background 0.3s ease;
+}
+
+.email-history-item:hover {
+    background: rgba(0, 123, 255, 0.05);
+}
+
+.email-history-item.sent {
+    border-left-color: var(--success-color);
+}
+
+.email-history-item.failed {
+    border-left-color: var(--danger-color);
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -250px;
+    }
+}
