@@ -7,7 +7,7 @@ use Dotenv\Dotenv;
 $dotenv = Dotenv::createImmutable(__DIR__ . '/../../');
 $dotenv->load();
 
-class Database {
+class DatabaseCon {
     private static $instance = null;
     private $connection;
     
@@ -32,7 +32,7 @@ class Database {
     
     public static function getInstance() {
         if (self::$instance == null) {
-            self::$instance = new Database();
+            self::$instance = new self(); // FIXED: Create DatabaseCon instance
         }
         return self::$instance;
     }

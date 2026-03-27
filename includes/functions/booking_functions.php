@@ -65,6 +65,25 @@ function getBookingStatusBadge($status) {
     return "<span class='badge bg-{$color}'>{$status}</span>";
 }
 
+function sanitizeInput($input) {
+    if (is_array($input)) {
+        return array_map('sanitizeInput', $input);
+    }
+    
+    // Trim whitespace
+    $input = trim($input);
+    
+    // Remove slashes if magic quotes is on
+    //if (get_magic_quotes_gpc()) {
+        //$input = stripslashes($input);
+    //}
+    
+    // Convert special characters to HTML entities
+    $input = htmlspecialchars($input, ENT_QUOTES, 'UTF-8');
+    
+    return $input;
+}
+
 function isTableAvailable($date, $time, $guests) {
     // Implementation depends on your business logic
     $booking = new Booking();

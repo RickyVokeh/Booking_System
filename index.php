@@ -7,7 +7,7 @@ $booking = new Booking();
 $featuredBookings = $booking->getUpcomingBookings(5);
 
 $page_title = 'Welcome to ' . APP_NAME;
-$extra_css = '<link rel="stylesheet" href="' . ASSETS_URL . '/css/home.css">';
+$extra_css = '<link rel="stylesheet" href="' . ASSETS_PATH . '/css/home.css">';
 include INCLUDES_PATH . '/templates/header.php';
 ?>
 

@@ -6,7 +6,7 @@ class Database {
     protected $table;
     
     public function __construct() {
-        $this->db = DatabaseConnection::getInstance()->getConnection();
+        $this->db = DatabaseCon::getInstance()->getConnection();
     }
     
     // Generic CRUD operations

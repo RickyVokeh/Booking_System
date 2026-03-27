@@ -1,7 +1,7 @@
 <?php
 // Application constants
 define('APP_NAME', $_ENV['APP_NAME'] ?? 'Restaurant Booking');
-define('APP_URL', $_ENV['APP_URL'] ?? 'http://localhost');
+define('APP_URL', $_ENV['APP_URL'] ?? 'http://localhost/Reservations/');
 define('APP_ENV', $_ENV['APP_ENV'] ?? 'development');
 define('APP_DEBUG', filter_var($_ENV['APP_DEBUG'] ?? true, FILTER_VALIDATE_BOOLEAN));
 

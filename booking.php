@@ -9,8 +9,8 @@ if (!isset($_SESSION['booking_csrf'])) {
 }
 
 $page_title = 'Book a Table - ' . APP_NAME;
-$extra_css = '<link rel="stylesheet" href="' . ASSETS_URL . '/css/booking.css">';
-$extra_js = '<script src="' . ASSETS_URL . '/js/booking.js"></script>';
+$extra_css = '<link rel="stylesheet" href="' . ASSETS_PATH . '/css/booking.css">';
+$extra_js = '<script src="' . ASSETS_PATH . '/js/booking.js"></script>';
 include INCLUDES_PATH . '/templates/header.php';
 ?>
 

@@ -39,7 +39,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
     <!-- Custom JS -->
-    <script src="<?php echo ASSETS_URL; ?>/js/main.js"></script>
+    <script src="<?php echo ASSETS_PATH; ?>/js/main.js"></script>
     
     <?php if (isset($extra_js)): ?>
         <?php echo $extra_js; ?>
