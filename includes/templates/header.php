@@ -33,19 +33,19 @@
                         <a class="nav-link" href="<?php echo APP_URL; ?>">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo APP_URL; ?>/booking.php">Book Table</a>
+                        <a class="nav-link" href="<?php echo APP_URL; ?>booking.php">Book Table</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo APP_URL; ?>/contact.php">Contact</a>
+                        <a class="nav-link" href="<?php echo APP_URL; ?>contact.php">Contact</a>
                     </li>
                     <?php if (isset($_SESSION['admin_id'])): ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo APP_URL; ?>/admin/dashboard.php">
+                            <a class="nav-link" href="<?php echo APP_URL; ?>admin/dashboard.php">
                                 <i class="fas fa-dashboard"></i> Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo APP_URL; ?>/admin/logout.php">
+                            <a class="nav-link" href="<?php echo APP_URL; ?>admin/logout.php">
                                 <i class="fas fa-sign-out-alt"></i> Logout
                             </a>
                         </li>

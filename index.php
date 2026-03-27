@@ -52,40 +52,5 @@ include INCLUDES_PATH . '/templates/header.php';
     </div>
 </div>
 
-<div class="row">
-    <div class="col-12">
-        <h2 class="text-center mb-4">Recent Bookings</h2>
-        <?php if ($featuredBookings): ?>
-            <div class="table-responsive">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Booking #</th>
-                            <th>Customer</th>
-                            <th>Date</th>
-                            <th>Time</th>
-                            <th>Guests</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($featuredBookings as $booking): ?>
-                        <tr>
-                            <td><?php echo htmlspecialchars($booking['booking_number']); ?></td>
-                            <td><?php echo htmlspecialchars($booking['customer_name']); ?></td>
-                            <td><?php echo formatBookingDate($booking['booking_date']); ?></td>
-                            <td><?php echo formatBookingTime($booking['booking_time']); ?></td>
-                            <td><?php echo $booking['guests']; ?></td>
-                            <td><?php echo getBookingStatusBadge($booking['status']); ?></td>
-                        </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-        <?php else: ?>
-            <p class="text-center">No bookings yet. Be the first to book!</p>
-        <?php endif; ?>
-    </div>
-</div>
 
 <?php include INCLUDES_PATH . '/templates/footer.php'; ?>

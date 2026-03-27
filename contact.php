@@ -61,23 +61,23 @@ include INCLUDES_PATH . '/templates/header.php';
             <div class="card-body">
                 <div class="mb-4">
                     <h5><i class="fas fa-map-marker-alt text-primary"></i> Address</h5>
-                    <p>123 Food Street<br>City, State 12345<br>United States</p>
+                    <p>001 Moi avenue<br>Mezannine Floor, Nairobi<br>Kenya</p>
                 </div>
                 
                 <div class="mb-4">
                     <h5><i class="fas fa-phone text-primary"></i> Phone</h5>
-                    <p>Reservations: +1 (234) 567-8900<br>General: +1 (234) 567-8901</p>
+                    <p>Reservations: +254 701616385<br>General: +254 701616385</p>
                 </div>
                 
                 <div class="mb-4">
                     <h5><i class="fas fa-envelope text-primary"></i> Email</h5>
-                    <p>General: info@restaurant.com<br>Reservations: bookings@restaurant.com</p>
+                    <p>General: info@meatlovers.co.ke<br>Reservations: bookings@meatlovers.com</p>
                 </div>
                 
                 <div class="mb-4">
                     <h5><i class="fas fa-clock text-primary"></i> Opening Hours</h5>
                     <p>
-                        Monday - Thursday: 11:00 AM - 10:00 PM<br>
+                        Monday - Thursday: 06:00 AM - 11:00 PM<br>
                         Friday - Saturday: 11:00 AM - 11:00 PM<br>
                         Sunday: 10:00 AM - 9:00 PM
                     </p>
@@ -96,7 +96,7 @@ include INCLUDES_PATH . '/templates/header.php';
             </div>
             <div class="card-body p-0">
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.9663095343008!2d-73.98510768458414!3d40.75889697932681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" 
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1994.4050066750563!2d36.8262293!3d-1.2881505!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11e6028612cb%3A0x679e49720c790d8f!2sMeat%20lovers%20restaurant!5e0!3m2!1sen!2ske!4v1771592464084!5m2!1sen!2ske" 
                     width="100%" 
                     height="400" 
                     style="border:0;" 

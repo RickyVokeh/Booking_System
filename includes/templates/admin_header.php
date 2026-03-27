@@ -22,7 +22,7 @@ if (!isset($_SESSION['admin_id'])) {
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
     
     <!-- Custom Admin CSS -->
-    <link rel="stylesheet" href="<?php echo ASSETS_URL; ?>/css/admin.css">
+    <link rel="stylesheet" href="<?php echo ASSETS_PATH; ?>/css/admin.css">
 </head>
 <body>
     <div class="d-flex" id="wrapper">

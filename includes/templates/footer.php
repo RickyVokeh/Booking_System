@@ -12,16 +12,16 @@
                     <h5>Quick Links</h5>
                     <ul class="list-unstyled">
                         <li><a href="<?php echo APP_URL; ?>" class="text-white">Home</a></li>
-                        <li><a href="<?php echo APP_URL; ?>/booking.php" class="text-white">Book Table</a></li>
-                        <li><a href="<?php echo APP_URL; ?>/contact.php" class="text-white">Contact</a></li>
+                        <li><a href="<?php echo APP_URL; ?>booking.php" class="text-white">Book Table</a></li>
+                        <li><a href="<?php echo APP_URL; ?>contact.php" class="text-white">Contact</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">
                     <h5>Contact Info</h5>
                     <ul class="list-unstyled">
-                        <li><i class="fas fa-phone"></i> +1 234 567 8900</li>
-                        <li><i class="fas fa-envelope"></i> info@restaurant.com</li>
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Food Street, City</li>
+                        <li><i class="fas fa-phone"></i> +254 701616385</li>
+                        <li><i class="fas fa-envelope"></i> info@meatlovers.co.ke</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 001 Moi Avenue,Nairobi </li>
                     </ul>
                 </div>
             </div>
