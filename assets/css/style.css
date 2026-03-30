@@ -1,12 +1,12 @@
 /* Global Styles */
 :root {
-    --primary-color: #007bff;
+    --primary-color: #eea70d;
     --secondary-color: #6c757d;
     --success-color: #28a745;
     --danger-color: #dc3545;
     --warning-color: #ffc107;
     --info-color: #17a2b8;
-    --dark-color: #343a40;
+    --dark-color: #0d0d0e;
     --light-color: #f8f9fa;
 }
 
@@ -57,13 +57,13 @@ main {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary-color), #0056b3);
+    background: var(--primary-color);
     border: none;
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+    box-shadow: rgb(253, 124, 3);
 }
 
 /* Forms */
@@ -135,7 +135,7 @@ main {
 /* Footer */
 footer {
     margin-top: auto;
-    background: linear-gradient(135deg, var(--dark-color), #23272b);
+    background: var(--dark-color);
     color: white;
 }
 

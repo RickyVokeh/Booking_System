@@ -10,6 +10,10 @@ $page_title = 'Welcome to ' . APP_NAME;
 $extra_css = '<link rel="stylesheet" href="' . ASSETS_PATH . '/css/home.css">';
 include INCLUDES_PATH . '/templates/header.php';
 ?>
+<head>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
 
 <div class="hero-section text-center py-5 mb-4 bg-light rounded">
     <h1 class="display-4">Welcome to Meatlovers Restaurant</h1>
