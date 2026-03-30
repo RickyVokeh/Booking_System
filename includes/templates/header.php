@@ -10,6 +10,9 @@
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?php echo ASSETS_PATH; ?>/css/style.css">
