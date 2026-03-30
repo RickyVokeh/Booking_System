@@ -7,21 +7,21 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 
 class Mailer {
     private $mail;
-    private $db;
+    private $db; // This will hold the PDO connection
     
     public function __construct() {
         $this->mail = new PHPMailer(true);
         $this->setupMailer();
         
-        // For logging emails
+        // For logging emails - get PDO connection directly
         require_once __DIR__ . '/Db.php';
-        $this->db = new Database();
+        $this->db = DatabaseCon::getInstance()->getConnection(); // FIXED: Get PDO connection directly
     }
     
     private function setupMailer() {
         try {
             // Server settings
-            $this->mail->SMTPDebug = APP_DEBUG ? SMTP::DEBUG_SERVER : SMTP::DEBUG_OFF;
+            $this->mail->SMTPDebug = SMTP::DEBUG_OFF;
             $this->mail->isSMTP();
             $this->mail->Host = $_ENV['SMTP_HOST'];
             $this->mail->SMTPAuth = true;
@@ -31,7 +31,9 @@ class Mailer {
             $this->mail->Port = $_ENV['SMTP_PORT'];
             
             // Default sender
-            $this->mail->setFrom($_ENV['SMTP_USER'], APP_NAME);
+            $fromEmail = $_ENV['SMTP_USER'] ?? 'noreply@reservations.com';
+            $fromName = defined('APP_NAME') ? APP_NAME : 'Reservation System';
+            $this->mail->setFrom($fromEmail, $fromName);
             $this->mail->isHTML(true);
             
         } catch (Exception $e) {
@@ -48,12 +50,18 @@ class Mailer {
             $this->mail->addAddress($bookingData['customer_email'], $bookingData['customer_name']);
             
             // Content
-            $this->mail->Subject = 'Booking Confirmation - ' . APP_NAME;
+            $this->mail->Subject = 'Booking Confirmation - ' . (defined('APP_NAME') ? APP_NAME : 'Reservation System');
             
-            // Load email template
-            ob_start();
-            include ROOT_PATH . '/emails/booking_confirmation.php';
-            $this->mail->Body = ob_get_clean();
+            // Load email template - check if file exists
+            $templateFile = ROOT_PATH . '/emails/booking_confirmation.php';
+            if (file_exists($templateFile)) {
+                ob_start();
+                include $templateFile;
+                $this->mail->Body = ob_get_clean();
+            } else {
+                // Fallback template
+                $this->mail->Body = $this->buildDefaultConfirmationEmail($bookingData);
+            }
             
             $this->mail->AltBody = strip_tags(str_replace(['<br>', '</p>'], ["\n", "\n\n"], $this->mail->Body));
             
@@ -134,31 +142,68 @@ class Mailer {
                 $data['sent_by'] = $_SESSION['admin_id'];
             }
             
+            // Set sent_at based on status
             $data['sent_at'] = $data['status'] === 'sent' ? date('Y-m-d H:i:s') : null;
+            
+            // Prepare the data with proper field mapping
+            $emailData = [
+                ':recipient_email' => $data['recipient_email'] ?? null,
+                ':recipient_name' => $data['recipient_name'] ?? null,
+                ':subject' => $data['subject'] ?? null,
+                ':message' => $data['message'] ?? null,
+                ':email_type' => $data['email_type'] ?? 'general',
+                ':status' => $data['status'] ?? 'sent',
+                ':sent_by' => $data['sent_by'] ?? null,
+                ':error_message' => $data['error_message'] ?? null,
+                ':sent_at' => $data['sent_at']
+            ];
             
             $sql = "INSERT INTO email_logs 
                     (recipient_email, recipient_name, subject, message, email_type, status, sent_by, error_message, sent_at) 
                     VALUES 
                     (:recipient_email, :recipient_name, :subject, :message, :email_type, :status, :sent_by, :error_message, :sent_at)";
             
-            $stmt = $this->db->getConnection()->prepare($sql);
-            $stmt->execute($data);
+            // FIXED: Use $this->db directly (it's already the PDO connection)
+            $stmt = $this->db->prepare($sql);
+            $result = $stmt->execute($emailData);
             
+            if (!$result) {
+                error_log("Failed to insert email log: " . print_r($stmt->errorInfo(), true));
+            }
+            
+            return $result;
+            
+        } catch (PDOException $e) {
+            error_log("PDO Exception in logEmail: " . $e->getMessage());
+            error_log("SQL State: " . $e->errorInfo[0] ?? 'N/A');
+            error_log("Error Code: " . $e->errorInfo[1] ?? 'N/A');
+            error_log("Error Message: " . $e->errorInfo[2] ?? 'N/A');
+            return false;
         } catch (Exception $e) {
             error_log("Failed to log email: " . $e->getMessage());
+            return false;
         }
     }
     
     public function sendAdminNotification($bookingData) {
         try {
             $this->mail->clearAddresses();
-            $this->mail->addAddress($_ENV['ADMIN_EMAIL'], 'Admin');
+            $adminEmail = $_ENV['ADMIN_EMAIL'] ?? 'admin@reservations.com';
+            $this->mail->addAddress($adminEmail, 'Admin');
             
-            $this->mail->Subject = 'New Booking Received - ' . $bookingData['booking_number'];
+            $bookingNumber = $bookingData['booking_number'] ?? $bookingData['id'] ?? 'New';
+            $this->mail->Subject = 'New Booking Received - ' . $bookingNumber;
             
-            ob_start();
-            include ROOT_PATH . '/emails/admin_notification.php';
-            $this->mail->Body = ob_get_clean();
+            // Load email template if exists
+            $templateFile = ROOT_PATH . '/emails/admin_notification.php';
+            if (file_exists($templateFile)) {
+                ob_start();
+                include $templateFile;
+                $this->mail->Body = ob_get_clean();
+            } else {
+                // Fallback template
+                $this->mail->Body = $this->buildDefaultAdminNotification($bookingData);
+            }
             
             $this->mail->send();
             return true;

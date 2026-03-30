@@ -2,6 +2,8 @@
 session_start();
 require_once __DIR__ . '/includes/config/constants.php';
 require_once __DIR__ . '/includes/classes/Booking.php';
+require_once __DIR__ . '/includes/functions.php';
+
 
 // Check if we have a booking ID
 if (!isset($_SESSION['last_booking_id'])) {
@@ -64,8 +66,8 @@ include INCLUDES_PATH . '/templates/header.php';
                     <h5>Need to make changes?</h5>
                     <p>Please contact us at least 2 hours before your booking time.</p>
                     <p>
-                        <i class="fas fa-phone"></i> +254740784060<br>
-                        <i class="fas fa-envelope"></i> bookings@restaurant.com
+                        <i class="fas fa-phone"></i> +254701616385<br>
+                        <i class="fas fa-envelope"></i> info@meatlovers.com
                     </p>
                 </div>
                 

@@ -25,6 +25,10 @@ class Database {
         $stmt->execute([$id]);
         return $stmt->fetch();
     }
+
+    public function getConnection() {
+    return $this->db;
+}
     
     public function create($data) {
         $columns = implode(', ', array_keys($data));
