@@ -209,8 +209,8 @@
         
         <div class="footer">
             <p><strong><?php echo APP_NAME ?? 'Restaurant Name'; ?></strong></p>
-            <p>123 Food Street, City, State 12345</p>
-            <p>Phone: (555) 123-4567 | Email: info@restaurant.com</p>
+            <p>001 Moi Avenue, Nairobi City, Kenya</p>
+            <p>Phone: +254 701407860 | Email: info@meatlovers.com</p>
             <p style="margin-top: 15px;">
                 <a href="<?php echo APP_URL ?? '#'; ?>">Visit our website</a> | 
                 <a href="<?php echo APP_URL ?? '#'; ?>/privacy.php">Privacy Policy</a> | 
