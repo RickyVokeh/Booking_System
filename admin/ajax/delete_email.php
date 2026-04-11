@@ -22,7 +22,7 @@ if (!$emailId) {
     exit();
 }
 
-$db = DatabaseConnection::getInstance()->getConnection();
+$db = DatabaseCon::getInstance()->getConnection();
 $stmt = $db->prepare("DELETE FROM email_logs WHERE id = ?");
 $result = $stmt->execute([$emailId]);
 

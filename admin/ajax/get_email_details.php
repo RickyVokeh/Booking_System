@@ -16,7 +16,7 @@ if (!$emailId) {
     exit();
 }
 
-$db = DatabaseConnection::getInstance()->getConnection();
+$db = DatabaseCon::getInstance()->getConnection();
 $stmt = $db->prepare("
     SELECT el.*, a.username as sent_by_name 
     FROM email_logs el 

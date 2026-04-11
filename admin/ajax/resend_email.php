@@ -23,7 +23,7 @@ if (!$emailId) {
     exit();
 }
 
-$db = DatabaseConnection::getInstance()->getConnection();
+$db = DatabaseCon::getInstance()->getConnection();
 $stmt = $db->prepare("SELECT * FROM email_logs WHERE id = ?");
 $stmt->execute([$emailId]);
 $email = $stmt->fetch();

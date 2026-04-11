@@ -1,10 +1,10 @@
 <?php
 session_start();
 require_once __DIR__ . '/../includes/config/constants.php';
-require_once __DIR__ . '/../includes/classes/Database.php';
+require_once __DIR__ . '/../includes/classes/Db.php';
 require_once __DIR__ . '/includes/auth_check.php';
 
-$db = DatabaseConnection::getInstance()->getConnection();
+$db = DatabaseCon::getInstance()->getConnection();
 
 // Get email history with pagination
 $page = $_GET['page'] ?? 1;
@@ -200,7 +200,7 @@ $(document).ready(function() {
     });
 });
 
-function viewEmail(id) {
+window.viewEmail =function(id)  {
     $.ajax({
         url: 'ajax/get_email_details.php',
         method: 'GET',
@@ -238,7 +238,7 @@ function viewEmail(id) {
     });
 }
 
-function resendEmail(id) {
+window.resendEmail = function(id)  {
     if (confirm('Are you sure you want to resend this email?')) {
         $.ajax({
             url: 'ajax/resend_email.php',

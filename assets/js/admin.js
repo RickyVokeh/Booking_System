@@ -98,7 +98,7 @@ $(document).ready(function() {
 // Update booking status
 function updateBookingStatus(bookingId, status) {
     $.ajax({
-        url: 'ajax/update_status.php',
+        url: 'ajax/update_booking_status.php',
         method: 'POST',
         data: {
             booking_id: bookingId,
@@ -239,7 +239,7 @@ function performBulkAction(action, ids) {
     showLoading();
     
     $.ajax({
-        url: 'ajax/bulk_action.php',
+        url: 'ajax/send_bulk_email.php',
         method: 'POST',
         data: {
             action: action,

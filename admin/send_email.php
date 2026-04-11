@@ -334,5 +334,3 @@ function nl2br(text) {
     return text.replace(/\n/g, '<br>');
 }
 </script>
-
-<?php include INCLUDES_PATH . '/templates/footer.php'; ?>
