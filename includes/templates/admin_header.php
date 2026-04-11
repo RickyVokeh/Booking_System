@@ -1,4 +1,31 @@
 <?php
+// At the very top of admin_header.php, before any HTML
+function displayFlashMessage() {
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    
+    $output = '';
+    
+    if (isset($_SESSION['flash_messages']) && !empty($_SESSION['flash_messages'])) {
+        foreach ($_SESSION['flash_messages'] as $message) {
+            $type = htmlspecialchars($message['type']);
+            $msg = htmlspecialchars($message['message']);
+            
+            $output .= <<<HTML
+            <div class="alert alert-{$type} alert-dismissible fade show" role="alert">
+                {$msg}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+HTML;
+        }
+        unset($_SESSION['flash_messages']);
+    }
+    
+    return $output;
+}
+
+// Rest of your header code...
 // Check if user is logged in
 if (!isset($_SESSION['admin_id'])) {
     header('Location: ' . APP_URL . '/admin/login.php');

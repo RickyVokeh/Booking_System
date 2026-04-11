@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once __DIR__ . '/../includes/config/constants.php';
-require_once __DIR__ . '/../includes/classes/Database.php';
+require_once __DIR__ . '/../includes/classes/Db.php';
 require_once __DIR__ . '/includes/auth_check.php';
 require_once __DIR__ . '/includes/admin_functions.php';
 
@@ -13,7 +13,6 @@ $chartData = getBookingChartData(30);
 $page_title = 'Dashboard - ' . APP_NAME;
 include INCLUDES_PATH . '/templates/admin_header.php';
 ?>
-
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2"><i class="fas fa-tachometer-alt"></i> Dashboard</h1>
     <div class="btn-toolbar mb-2 mb-md-0">

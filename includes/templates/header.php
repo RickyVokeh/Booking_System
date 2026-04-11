@@ -36,10 +36,10 @@
                         <a class="nav-link" href="<?php echo APP_URL; ?>">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo APP_URL; ?>booking.php">Book Table</a>
+                        <a class="nav-link" href="<?php echo APP_URL; ?>contact.php">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo APP_URL; ?>contact.php">Contact</a>
+                        <a class="nav-link" href="<?php echo APP_URL; ?>booking.php">Book table</a>
                     </li>
                     <?php if (isset($_SESSION['admin_id'])): ?>
                         <li class="nav-item">

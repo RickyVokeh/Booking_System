@@ -49,22 +49,23 @@ $page_title = 'Admin Login - ' . APP_NAME;
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <!-- Custom Admin CSS -->
     <link rel="stylesheet" href="<?php echo ASSETS_PATH; ?>/css/admin.css">
     
     <style>
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: whitesmoke;
             min-height: 100vh;
             display: flex;
-            align-items: center;
+            align-items: cente;
             justify-content: center;
         }
         
         .login-card {
             border: none;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             overflow: hidden;
             max-width: 400px;
             width: 100%;
@@ -113,7 +114,7 @@ $page_title = 'Admin Login - ' . APP_NAME;
     <div class="login-card">
         <div class="login-header">
             <i class="fas fa-utensils"></i>
-            <h3><?php echo APP_NAME; ?></h3>
+            <h3>Meatlovers Restaurant</h3>
             <p class="mb-0">Admin Panel Login</p>
         </div>
         <div class="login-body">

@@ -1,6 +1,6 @@
 <?php
 function getAdminStats() {
-    $db = DatabaseConnection::getInstance()->getConnection();
+    $db = DatabaseCon::getInstance()->getConnection();
     
     $stats = [];
     
@@ -38,7 +38,7 @@ function getAdminStats() {
 }
 
 function getRecentActivities($limit = 10) {
-    $db = DatabaseConnection::getInstance()->getConnection();
+    $db = DatabaseCon::getInstance()->getConnection();
     
     $stmt = $db->prepare("
         (SELECT 'booking' as type, id, customer_name as title, created_at 
@@ -59,7 +59,7 @@ function getRecentActivities($limit = 10) {
 }
 
 function getBookingChartData($days = 30) {
-    $db = DatabaseConnection::getInstance()->getConnection();
+    $db = DatabaseCon::getInstance()->getConnection();
     
     $stmt = $db->prepare("
         SELECT 
@@ -89,7 +89,7 @@ function getBookingChartData($days = 30) {
 }
 
 function logAdminAction($admin_id, $action, $details = '') {
-    $db = DatabaseConnection::getInstance()->getConnection();
+    $db = DatabaseCon::getInstance()->getConnection();
     
     $stmt = $db->prepare("
         INSERT INTO admin_logs (admin_id, action, details, ip_address, user_agent) 
